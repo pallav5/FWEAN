@@ -1,0 +1,169 @@
+{% extends 'admintemplates/adminbase.html' %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="container-fluid">
+
+      <div class="table-responsive">
+
+   <table class="table table-striped table-bordered table-hover">
+
+        <thead class="bg-success">
+         <tr>
+
+
+        <th class="center " style="height: 50px" colspan='2' > <h3>Organization Info!!!
+
+            {% if not org %}
+
+                        <a class="ml-20"> <a href="{% url 'fweanapp:adminorganizationcreate'  %}" > <button class="btn btn-lg btn-primary "> Add new </button>  </a>
+
+                            {% endif %}
+                            {% if  org %}
+
+                             <a href="{% url 'fweanapp:adminorganizationupdate' org.id %}" > <button class="btn btn-lg btn-warning"> Update </button> </a>
+
+                            {% endif %}
+
+                     </h3>
+
+
+        </th>
+
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+      <th><b>Name:</b></th>
+      <td>{{ org.name }}</td>
+
+    </tr>
+    <tr>
+      <th><b>Logo:</b></th>
+      <td> <img  src="{{org.logo.url}}" alt="" style="width: 200px;"></td>
+
+    </tr>
+    <tr>
+      <th><b>Profile Image:</b></th>
+      <td><img src="{{org.profile_image.url}}" alt="" style="width: 200px;"></td>
+
+    </tr>
+
+  <tr>
+      <th><b>Address</b></th>
+      <td>{{ org.address }}</td>
+
+    </tr>
+
+  <tr>
+      <th><b>Contact No:</b></th>
+      <td>{{ org.contact_no }}</td>
+
+    </tr>
+
+   <tr>
+      <th><b> Alternative Contact No:</b></th>
+      <td>{{ org.alt_contact_no }}</td>
+
+    </tr>
+
+
+   <tr>
+      <th><b>Map Location:</b></th>
+      <td>{{ org.map_location|truncatechars_html:100 }}</td>
+
+    </tr>
+
+   <tr>
+      <th><b>Email:</b></th>
+      <td>{{ org.email }}</td>
+
+    </tr>
+   <tr>
+      <th><b>Alternative Email:</b></th>
+      <td>{{ org.alt_email }}</td>
+
+    </tr>
+
+            <tr>
+      <th><b>Facilities:</b></th>
+      <td>
+          {% for  facilities in org.facilities.all %}
+          {{ facilities }},
+          {% endfor %}
+      </td>
+
+    </tr>
+
+   <tr>
+      <th><b>About Us:</b></th>
+      <td>{{ org.about_us }}</td>
+
+    </tr>
+
+   <tr>
+      <th><b>Missiion Vision:</b></th>
+      <td>{{ org.mission_vision }}</td>
+
+    </tr>
+
+   <tr>
+      <th><b>Facebook:</b></th>
+      <td>{{ org.facebook }}</td>
+
+    </tr>
+
+    <tr>
+      <th><b>Instagram:</b></th>
+      <td>{{ org.instagram }}</td>
+
+    </tr>
+    <tr>
+      <th><b>Twitter:</b></th>
+      <td>{{ org.twitter }}</td>
+
+    </tr>
+
+    <tr>
+      <th><b>Youtube:</b></th>
+      <td>{{ org.youtube}}</td>
+
+    </tr>
+
+    <tr>
+      <th><b>Viber:</b></th>
+      <td>{{ org.viber }}</td>
+
+    </tr>
+
+    <tr>
+      <th><b>Whatsapp:</b></th>
+      <td>{{ org.whatsapp }}</td>
+
+    </tr>
+
+    <tr>
+      <th><b>Terms and Condition:</b></th>
+      <td >{{ org.terms_and_conditions|safe }}</td>
+
+    </tr>
+  <tr>
+      <th><b>Privacy Policy:</b></th>
+      <td>{{ org.privacy_policy|safe }}</td>
+
+    </tr>
+  </tbody>
+
+
+
+                                </table>
+                            </div>
+
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,182 @@
+{% extends 'clienttemplates/clientbase.html' %}
+{% load static %}
+
+{% block title %}Contact Us{% endblock %}
+
+{% block content %}
+      <!-- Start main-content -->
+
+  <div class="main-content">
+
+    <!-- Section: inner-header -->
+    <section class="inner-header divider parallax layer-overlay overlay-dark-5" data-stellar-background-ratio="0.5" data-bg-img="images/bg/bg1.jpg">
+      <div class="container pb-50">
+        <!-- Section Content -->
+        <div class="section-content pt-100">
+          <div class="row">
+            <div class="col-md-12">
+              <h3 class="title text-white">Contact Us</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Divider: Contact -->
+    <section class="divider">
+      <div class="container">
+        <div class="row ">
+{#          <div class="col-md-5">#}
+{#            <h3 class="line-bottom mt-0 mb-30">Any Queries??</h3>#}
+{#            #}
+{##}
+{#            <!-- Contact Form -->#}
+{#            <form id="contact_form" name="contact_form" class="" action="." method="post">#}
+{#                {% csrf_token %}#}
+{#              <div class="row">#}
+{#                <div class="col-sm-6">#}
+{#                    <label>Name <small>*</small></label>#}
+{#                      {{ form.sender }}#}
+{#                </div>#}
+{#                <div class="col-sm-6">#}
+{#                    <label>Email <small>*</small></label>#}
+{#                    {{ form.email }}#}
+{#                </div>#}
+{#              </div>#}
+{##}
+{#              <div class="row">#}
+{#                <div class="col-sm-6">#}
+{#                    <label>Subject <small>*</small></label>#}
+{#                   {{ form.subject }}#}
+{#                </div>#}
+{#                <div class="col-sm-6">#}
+{#                    <label>Phone</label>#}
+{#                  {{ form.mobile }}#}
+{#                </div>#}
+{#              </div>#}
+{##}
+{#              <div class="row">#}
+{#                  <div class="col-sm-12">#}
+{#                      <label>Message</label>#}
+{#                        {{ form.message }}#}
+{#                  </div>#}
+{#              </div>#}
+{##}
+{#              <div class="row mt-5">#}
+{#                  <div class="col-sm-6">#}
+{#                <button  id='sendbutton' type="submit" class="btn btn-dark btn-theme-colored btn-flat mr-5" data-loading-text="Please wait...">Send your message</button>#}
+{#                </div>#}
+{#              </div>#}
+{##}
+{#            </form>#}
+{##}
+{#            <!-- Contact Form Validation-->#}
+{##}
+{#          </div>#}
+          <div class="col-md-12">
+            <div class="row">
+              <h3 class="line-bottom mt-0 mb-50 ml-15">Organization Contact Details</h3>
+              <div class="col-md-12">
+                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque</p>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="icon-box media bg-deep p-30 mb-20"> <a class="media-left pull-left flip" href="#"> <i class="pe-7s-map-2 text-theme-colored"></i></a>
+                  <div class="media-body">
+                    <h4 class="mt-0">Our Office Location</h4>
+                    <p>{{ org.address }}</p>
+                  </div>
+                </div>
+              </div>
+              <div  class="col-xs-12 col-sm-6 col-md-6">
+                <div class="icon-box media bg-deep p-30 mb-20"> <a class="media-left pull-left flip" href="#"> <i class="pe-7s-call text-theme-colored"></i></a>
+                  <div class="media-body">
+                    <h4 class="mt-0">Contact Number</h4>
+                    <p>{{ org.contact_no }}, {% if org.alt_contact_no %} {{ org.alt_contact_no }} {% endif %}</p>
+                  </div>
+                </div>
+              </div>
+              <div  class="col-xs-12 col-sm-6 col-md-6">
+                <div class="icon-box media bg-deep p-30 mb-20"> <a class="media-left pull-left flip" href="#"> <i class="pe-7s-mail text-theme-colored"></i></a>
+                  <div class="media-body">
+                    <h4 class="mt-0">Email Address</h4>
+                    <p>{{ org.email }}</p>
+                  </div>
+                </div>
+              </div>
+
+                <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="icon-box media bg-deep p-30 mb-20"> <a class="media-left pull-left flip" href="#"> <i class="fa fa-instagram text-theme-colored"></i></a>
+                  <div class="media-body">
+                    <h4 class="mt-0">Instagram</h4>
+                    {% if org.instagram %}
+                      <p>{{ org.instagram }}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+
+                <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="icon-box media bg-deep p-30 mb-20"> <a class="media-left pull-left flip" href="#"> <i class="fa fa-twitter text-theme-colored"></i></a>
+                  <div class="media-body">
+                    <h4 class="mt-0">Twitter</h4>
+                    {% if org.twitter %}
+                      <p>{{ org.twitter }}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+
+                <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="icon-box media bg-deep p-30 mb-20"> <a class="media-left pull-left flip" href="#"> <i class="fab fa-viber text-theme-colored"></i></a>
+                  <div class="media-body">
+                    <h4 class="mt-0">Viber</h4>
+                    {% if org.viber %}
+                      <p>{{ org.viber }}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="icon-box media bg-deep p-30 mb-20"> <a class="media-left pull-left flip" href="#"> <i class="fab fa-youtube text-theme-colored"></i></a>
+                  <div class="media-body">
+                    <h4 class="mt-0">Youtube</h4>
+                    {% if org.youtube %}
+                      <p>{{ org.youtube }}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+
+             {% if org.whatsapp %}
+
+             <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="icon-box media bg-deep p-30 mb-20"> <a class="media-left pull-left flip" href="#"> <i class="fa fa-whatsapp text-theme-colored"></i></a>
+                  <div class="media-body">
+                    <h4 class="mt-0">Our Whatsapp Number</h4>
+                    {% if org.whatsapp %}
+                      <p>{{ org.whatsapp }}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+
+            </div>
+          </div>
+        <div class="col-md-12">
+          <!-- Google Map HTML Codes -->
+            <h3 class="line-bottom mt-0 mb-30">Map location</h3>
+            <div class="map p-2">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2723.4547116451713!2d85.33297805321095!3d27.72087394374904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19a1fbbc5b77%3A0xfd81cae85f54eef8!2z4KSo4KWH4KSq4KS-4KSyIOCkruCkueCkv-CksuCkviDgpIngpKbgpY3gpK_gpK7gpYAg4KSu4KS54KS-4KS44KSC4KSY!5e0!3m2!1sne!2snp!4v1617341550791!5m2!1sne!2snp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+       </div>
+      </div>
+    </section>
+  </div>
+{% block js %}
+
+
+    {% endblock %}
+{% endblock %}
