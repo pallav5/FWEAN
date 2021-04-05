@@ -78,3 +78,48 @@ class OrganizationForm(forms.ModelForm):
 
             'terms_and_conditions': SummernoteWidget(),
         }
+
+
+from django.forms.models import inlineformset_factory,formset_factory
+ImageMediaFormSet = inlineformset_factory(
+    ImageAlbum,ImageMedia, fields=['image','title'],can_delete = True,
+    widgets= {
+        'image': forms.ClearableFileInput(attrs={
+            'class': 'form-control',
+            'style': "border: 1px solid gray;",
+        }),
+        'title': forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Write image caption here..(optional)',
+            'style': "border: 1px solid gray;",
+        }),
+
+    }
+)
+
+
+
+class ImageAlbumForm(forms.ModelForm):
+    class Meta:
+        model = ImageAlbum
+        fields = "__all__"
+        # exclude = ()
+        widgets = {
+            'image': forms.ClearableFileInput(attrs={
+                'class': 'form-control  font-weight-bold text-dark ',
+                'style': "border: 1px solid gray;",
+
+            }),
+            'description': forms.Textarea(attrs={
+                'class': 'form-control col-md-12 font-weight-bold text-dark ',
+                'placeholder': 'Desc..',
+
+                "style": "height: 170px; border: 1px solid gray;"
+            }),
+            'title': forms.TextInput(attrs={
+                'class': 'form-control',
+                'style': 'border: 1px solid gray;',
+            }),
+
+
+        }

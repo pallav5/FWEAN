@@ -8,7 +8,21 @@
 
 {% block content %}
 
-
+ <div class="page-breadcrumb">
+                <div class="row">
+                    <div class="col-12 d-flex no-block align-items-center">
+                        <h4 class="page-title">Dashboard</h4>
+                        <div class="ms-auto text-end">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
  <div class="container-fluid">
@@ -17,12 +31,12 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">Icon Box</h5>
+                                <h5 class="card-title"></h5>
                                 <div class="row">
                                     <!-- Column -->
 
                                     <div class="col-md-6 col-lg-3 col-xlg-3">
-                                         <a href="#">
+                                         <a href="{% url 'fweanapp:adminorganizationdetail' org.id %}">
                                         <div class="card card-hover">
                                             <div style="height: 150px;" class="box bg-cyan text-center">
                                                 <h1 class="font-light text-white mt-4 "><i class="mdi mdi-view-dashboard"></i>
@@ -35,13 +49,15 @@
 
                                     <!-- Column -->
                                     <div class="col-md-6 col-lg-3 col-xlg-3">
+                                         <a href="{% url 'fweanapp:imagealbumlist'  %}">
                                         <div class="card card-hover">
-                                            <div class="box bg-success text-center">
-                                                <h1 class="font-light text-white"><i
+                                            <div style="height: 150px;" class="box bg-success text-center">
+                                                <h1 class="font-light text-white mt-4"><i
                                                         class="mdi mdi-chart-areaspline"></i></h1>
-                                                <h6 class="text-white">Charts</h6>
+                                                <h6 class="text-white">Image Albums (Gallery)</h6>
                                             </div>
                                         </div>
+                                         </a>
                                     </div>
                                     <!-- Column -->
                                     <div class="col-md-6 col-lg-3 col-xlg-3">

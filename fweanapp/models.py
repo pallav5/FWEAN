@@ -69,8 +69,35 @@ class GeographicalCoverage(TimeStamp):
 class SuccessStories(TimeStamp):
     pass
 
+
+
 class Gallery(TimeStamp):
     pass
+
+
+class ImageAlbum(TimeStamp):
+    title = models.CharField(max_length=200)
+    image = models.ImageField(upload_to="gallery",null=False,blank=False)
+    description = models.TextField(null=True, blank=True)
+
+    def get_photos(self):
+        return ImageMedia.objects.filter(album=self)
+
+
+
+    def __str__(self):
+        return self.title
+
+
+class ImageMedia(TimeStamp):
+    title = models.CharField(max_length=200,null=True, blank=True)
+    album = models.ForeignKey(ImageAlbum, on_delete=models.CASCADE,related_name='images')
+    image = models.ImageField(upload_to="gallery")
+
+    def __str__(self):
+        return self.album.title
+
+
 
 class NewsAndMedia(TimeStamp):
     pass
